@@ -16,6 +16,8 @@ function validaChute (chute) {
         document.body.innerHTML = `
             <h2>Ganhou!!!</h2>
             <h3>O número secreto é ${numeroSecreto}!</h3>
+
+            <button id="jogar-novamente" class="btn-jogar">Jogar novamente.</button>
         `
     } else if (numero > numeroSecreto) {
         elementoChute.innerHTML += `
@@ -35,3 +37,9 @@ function numeroNaoPermitido(numero) {
 function chuteInvalido(numero) {
     return Number.isNaN(numero);
 }
+
+document.body.addEventListener('click', e => {
+    if (e.target.id == 'jogar-novamente') {
+        window.location.reload();
+    }
+});
